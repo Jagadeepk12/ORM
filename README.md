@@ -1,5 +1,5 @@
 # Ex02 Django ORM Web Application
-## Date: 
+## Date: 06.10.26
 
 ## AIM
 To develop a Django Application to store and retrieve data from a Vehicle Service Database platform using Object Relational Mapping(ORM).
@@ -35,11 +35,31 @@ Apply the migration files of the created app to the database
 Execute Django admin using localhost and create details for 10 entries
 
 ## PROGRAM
+```
+models.py
+from django.db import models
+from django.contrib import admin
+class Service_center_DB(models.Model):
+    Name=models.CharField(max_length=20)
+    Date_of_service=models.DateField
+    Mobile=models.IntegerField()
+    Model=models.CharField(max_length=30)
+    Address=models.TextField()
+    Vehicle_no=models.TextField()
+    Problem=models.CharField()
+class Service_center_DBAdmin(admin.ModelAdmin):
+    list_display=["Name","Mobile","Model","Address","Vehicle_no","Problem"]
 
+admin.py
+from django.contrib import admin
+from .models import Service_center_DB,Service_center_DBAdmin
+admin.site.register(Service_center_DB,Service_center_DBAdmin)
+
+```
 
 
 ## OUTPUT
-
+![alt text](image.png)
 
 
 ## RESULT
